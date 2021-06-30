@@ -37,9 +37,9 @@ steps:
     DISPLAY: ':99.0'
 
 - task: CopyFiles@2
-    inputs: 
-      sourceFolder: $(Build.SourcesDirectory)/bin/Microsoft.Health.Fhir.Liquid.Converter.Tool*
-      targetFolder: $(basicPath)
+  inputs: 
+    sourceFolder: $(Build.SourcesDirectory)/bin/Microsoft.Health.Fhir.Liquid.Converter.Tool*
+    targetFolder: $(basicPath)
 
 - bash: |
     echo ">>> Testing project:"
