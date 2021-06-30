@@ -19,6 +19,28 @@ steps:
     DISPLAY: ':99.0'
   workingDirectory: $(basicPath)
 
+- task: DownloadPipelineArtifact@2
+  inputs:
+    source: 'specific'
+    project: 'FhirConverter'
+    pipeline: 48
+    runVersion: 'latestFromBranch'
+    runBranch: refs/heads/main
+    patterns: 'Microsoft.Health.Fhir.Liquid.Converter.Tool*'
+    path: $(Build.SourcesDirectory)/bin
+
+- bash: |
+    ls $(Build.SourcesDirectory)/bin
+    workingDirectory: $(basicPath)
+  displayName: Check artifact
+  env:
+    DISPLAY: ':99.0'
+
+- task: CopyFiles@2
+      inputs: 
+        sourceFolder: $(Build.SourcesDirectory)/bin/Microsoft.Health.Fhir.Liquid.Converter.Tool*
+        targetFolder: $(basicPath)
+
 - bash: |
     echo ">>> Testing project:"
     npm run test
