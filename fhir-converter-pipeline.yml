@@ -32,9 +32,17 @@ steps:
 - task: ExtractFiles@1
   inputs:
     archiveFilePatterns: '**/Microsoft.Health.Fhir.Liquid.Converter.Tool**.nupkg'
-    destinationFolder: '$(Build.SourcesDirectory)/FHIR-Converter/client/unzip'
+    destinationFolder: '$(Build.SourcesDirectory)/FHIR-Converter/client/engine-temp'
     cleanDestinationFolder: true
     overwriteExistingFiles: false
+
+- bash: |
+    echo ">>> Moving files:"
+    mv engine-temp/contentFiles/any/netcoreapp3.1/Microsoft.Health.Fhir.Liquid.Converter.Tool/ engine/
+  workingDirectory: $(Build.SourcesDirectory)/FHIR-Converter/client
+  displayName: Move files to engine folder
+  env:
+    DISPLAY: ':99.0'
 
 - bash: |
     echo ">>> Testing project:"
