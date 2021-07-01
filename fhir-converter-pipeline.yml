@@ -42,11 +42,11 @@ steps:
     echo ">>> Moving files"
     if [ ! -d "engine" ]; then
       mkdir engine
+    else
+      rm -r engine/*
     fi
-    rm -r engine/*
     mv engine-temp/contentFiles/any/netcoreapp**/Microsoft.Health.Fhir.Liquid.Converter.Tool/* engine/
-    rm -r nuget
-    rm -r engine-temp
+    rm -r nuget engine-temp
   workingDirectory: $(Build.SourcesDirectory)/FHIR-Converter/client
   displayName: Move files to engine folder
   env:
