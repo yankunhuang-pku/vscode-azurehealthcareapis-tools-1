@@ -38,7 +38,7 @@ steps:
 
 - bash: |
     echo ">>> Moving files:"
-    mv engine-temp/contentFiles/any/netcoreapp3.1/Microsoft.Health.Fhir.Liquid.Converter.Tool/ engine/
+    mv engine-temp/contentFiles/any/netcoreapp**/Microsoft.Health.Fhir.Liquid.Converter.Tool/* engine/
   workingDirectory: $(Build.SourcesDirectory)/FHIR-Converter/client
   displayName: Move files to engine folder
   env:
