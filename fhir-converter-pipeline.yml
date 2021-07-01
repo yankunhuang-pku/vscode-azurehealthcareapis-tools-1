@@ -26,6 +26,7 @@ steps:
     definition: '48'
     buildVersionToDownload: 'latestFromBranch'
     branchName: refs/heads/main
+    itemPattern: '**Microsoft.Health.Fhir.Liquid.Converter.Tool**'
     targetPath: $(Build.SourcesDirectory)/FHIR-Converter/client
 
 - bash: |
