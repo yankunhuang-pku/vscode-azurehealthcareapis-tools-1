@@ -39,9 +39,14 @@ steps:
   displayName: Extract artifact
 
 - bash: |
-    echo ">>> Moving files:"
+    echo ">>> Moving files"
+    if [ ! -d "engine" ]; then
+      mkdir engine
+    fi
     rm -r engine/*
     mv engine-temp/contentFiles/any/netcoreapp**/Microsoft.Health.Fhir.Liquid.Converter.Tool/* engine/
+    rm -r nuget
+    rm -r engine-temp
   workingDirectory: $(Build.SourcesDirectory)/FHIR-Converter/client
   displayName: Move files to engine folder
   env:
