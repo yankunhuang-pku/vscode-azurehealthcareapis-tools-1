@@ -29,6 +29,13 @@ steps:
     itemPattern: 'nuget/Microsoft.Health.Fhir.Liquid.Converter.Tool**'
     targetPath: $(Build.SourcesDirectory)/FHIR-Converter/client
 
+- task: ExtractFiles@1
+  inputs:
+    archiveFilePatterns: '**/Microsoft.Health.Fhir.Liquid.Converter.Tool**.nupkg'
+    destinationFolder: '$(Build.SourcesDirectory)/FHIR-Converter/client/unzip'
+    cleanDestinationFolder: true
+    overwriteExistingFiles: false
+
 - bash: |
     echo ">>> Testing project:"
     npm run test
