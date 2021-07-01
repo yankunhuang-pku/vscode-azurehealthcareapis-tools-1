@@ -28,6 +28,7 @@ steps:
     branchName: refs/heads/main
     itemPattern: 'nuget/Microsoft.Health.Fhir.Liquid.Converter.Tool**'
     targetPath: $(Build.SourcesDirectory)/FHIR-Converter/client
+  displayName: Download FhirConverter artifact
 
 - task: ExtractFiles@1
   inputs:
@@ -35,9 +36,11 @@ steps:
     destinationFolder: '$(Build.SourcesDirectory)/FHIR-Converter/client/engine-temp'
     cleanDestinationFolder: true
     overwriteExistingFiles: false
+  displayName: Extract artifact
 
 - bash: |
     echo ">>> Moving files:"
+    rm -r engine/*
     mv engine-temp/contentFiles/any/netcoreapp**/Microsoft.Health.Fhir.Liquid.Converter.Tool/* engine/
   workingDirectory: $(Build.SourcesDirectory)/FHIR-Converter/client
   displayName: Move files to engine folder
