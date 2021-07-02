@@ -8,7 +8,7 @@ trigger:
     - v*
 
 stages: 
-- stage: FHIR Converter
+- stage: FhirConverter
   jobs:
   - job: Build
     displayName: Build -
