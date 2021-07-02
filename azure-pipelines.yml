@@ -12,7 +12,7 @@ stages:
     strategy:
       matrix:
         Windows:
-          imageName: 'windows-lastest'
+          imageName: 'windows-latest'
         MacOS:
           imageName: "macos-latest"
       maxParallel: 2
