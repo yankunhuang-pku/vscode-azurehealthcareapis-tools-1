@@ -25,7 +25,7 @@ steps:
     project: '3ec5df0c-1a0f-4dd5-92db-9a0b3fe70714'
     definition: '48'
     buildVersionToDownload: 'latestFromBranch'
-    branchName: refs/heads/main
+    branchName: refs/heads/dotliquid
     itemPattern: 'nuget/Microsoft.Health.Fhir.Liquid.Converter.Tool**'
     targetPath: $(Build.SourcesDirectory)/FHIR-Converter/client
   displayName: Download FhirConverter artifact
@@ -46,9 +46,8 @@ steps:
       rm -r engine/*
     fi
     mv engine-temp/contentFiles/any/netcoreapp**/Microsoft.Health.Fhir.Liquid.Converter.Tool/* engine/
-    rm -r nuget engine-temp
   workingDirectory: $(Build.SourcesDirectory)/FHIR-Converter/client
-  displayName: Move files to engine folder
+  displayName: Move files
   env:
     DISPLAY: ':99.0'
 
