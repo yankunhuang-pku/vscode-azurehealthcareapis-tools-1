@@ -7,13 +7,13 @@ stages:
 - stage: FhirConverter
   jobs:
   - job: Build
-    displayName: Fhir Converter Build -
+    displayName: FHIR Converter Build -
 
     strategy:
       matrix:
         Windows:
           imageName: 'windows-lastest'
-        Macos:
+        MacOS:
           imageName: "macos-latest"
       maxParallel: 2
 
