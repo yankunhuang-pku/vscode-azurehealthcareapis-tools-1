@@ -28,8 +28,8 @@ stages:
     steps:
     - template: ./fhir-converter-pipeline.yml
 
-stages: 
-- stage: FhirConverter
+
+- stage: FhirConverter2
   jobs:
   - job: Build
     displayName: Fhir Converter Build -
