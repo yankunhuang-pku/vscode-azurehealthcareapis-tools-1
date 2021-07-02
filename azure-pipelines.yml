@@ -7,9 +7,10 @@ trigger:
     include:
     - v*
 
-- stages: FHIR Converter Build
+stages: 
+- stage: FHIR Converter
   jobs:
-  - job: FHIR Converter Build
+  - job: Build
     displayName: FHIR Converter Build -
 
     strategy:
