@@ -11,7 +11,7 @@ stages:
 - stage: FHIR Converter
   jobs:
   - job: Build
-    displayName: FHIR Converter Build -
+    displayName: Build -
 
     strategy:
       matrix:
